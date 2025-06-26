@@ -5,7 +5,7 @@ const Socio = require('../models/Socio');
 // @access  Private
 const createOrUpdateSocio = async (req, res) => {
     const {
-        nome, email, telefone, dataNascimento, endereco, cpf, rg,
+        nome, email, dataNascimento, endereco, cpf, rg,
         carteiraTrabalho, registroEmpresa, empresaTrabalha, tempoEmpresa,
         salarioHora, dataVirouSocio, dependentes, linkSite
     } = req.body;
@@ -18,7 +18,6 @@ const createOrUpdateSocio = async (req, res) => {
             // Atualizar sócio existente
             socio.nome = nome || socio.nome;
             socio.email = email || socio.email;
-            socio.telefone = telefone || socio.telefone;
             socio.dataNascimento = dataNascimento || socio.dataNascimento;
             socio.endereco = endereco || socio.endereco;
             socio.rg = rg || socio.rg;
@@ -37,7 +36,7 @@ const createOrUpdateSocio = async (req, res) => {
         } else {
             // Criar novo sócio
             socio = new Socio({
-                nome, email, telefone, dataNascimento, endereco, cpf, rg,
+                nome, email, dataNascimento, endereco, cpf, rg,
                 carteiraTrabalho, registroEmpresa, empresaTrabalha, tempoEmpresa,
                 salarioHora, dataVirouSocio, dependentes, linkSite,
                 createdBy: req.user._id // Quem criou este sócio (do token JWT)
