@@ -1,2 +1,2 @@
-# sintformularios2
+# sintformularios
 formularios
